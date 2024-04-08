@@ -1,0 +1,111 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:v="clr-namespace:wordup.Views"
+             mc:Ignorable="d" d:DesignWidth="450" d:DesignHeight="800"
+             x:Class="wordup.Views.MainView"
+             xmlns:sys="clr-namespace:System;assembly=netstandard"
+             x:CompileBindings="False">
+  <Grid RowDefinitions="*,Auto,Auto" 
+    Background="White">
+  <StackPanel Orientation="Vertical" x:Name="GuessPanel" >
+  </StackPanel>
+  <StackPanel Grid.Row="1" Orientation="Vertical"
+      HorizontalAlignment="Center">
+    <ItemsControl ScrollViewer.HorizontalScrollBarVisibility="Auto"
+         ScrollViewer.VerticalScrollBarVisibility="Disabled">
+      <ItemsControl.ItemsPanel>
+          <ItemsPanelTemplate>
+              <StackPanel Orientation="Horizontal"/>
+          </ItemsPanelTemplate>
+      </ItemsControl.ItemsPanel>
+      <ItemsControl.ItemTemplate>
+          <DataTemplate>
+              <Button Content="{Binding}"
+                FontSize="38" 
+                Margin="0" 
+                Foreground="White"
+              Background="Gray"
+                Click="Button_Click"/>
+          </DataTemplate>
+      </ItemsControl.ItemTemplate>
+      <ItemsControl.Items>
+        <sys:String>Q</sys:String>
+        <sys:String>W</sys:String>
+        <sys:String>E</sys:String>
+        <sys:String>R</sys:String>
+        <sys:String>T</sys:String>
+        <sys:String>Y</sys:String>
+        <sys:String>U</sys:String>
+        <sys:String>I</sys:String>
+        <sys:String>O</sys:String>
+        <sys:String>P</sys:String>
+       </ItemsControl.Items>
+    </ItemsControl>
+    <ItemsControl ScrollViewer.HorizontalScrollBarVisibility="Auto"
+         ScrollViewer.VerticalScrollBarVisibility="Disabled"
+         Margin="25,0,0,0">
+      <ItemsControl.ItemsPanel>
+          <ItemsPanelTemplate>
+              <StackPanel Orientation="Horizontal"/>
+          </ItemsPanelTemplate>
+      </ItemsControl.ItemsPanel>
+      <ItemsControl.ItemTemplate>
+          <DataTemplate>
+              <Button Content="{Binding}" Margin="0"
+              FontSize="38" 
+                Foreground="White"
+              Background="Gray"
+              Click="Button_Click" />
+          </DataTemplate>
+      </ItemsControl.ItemTemplate>
+      <ItemsControl.Items>
+        <sys:String>A</sys:String>
+        <sys:String>S</sys:String>
+        <sys:String>D</sys:String>
+        <sys:String>F</sys:String>
+        <sys:String>G</sys:String>
+        <sys:String>H</sys:String>
+        <sys:String>J</sys:String>
+        <sys:String>K</sys:String>
+        <sys:String>L</sys:String>
+       </ItemsControl.Items>
+    </ItemsControl>
+    <ItemsControl ScrollViewer.HorizontalScrollBarVisibility="Auto"
+         ScrollViewer.VerticalScrollBarVisibility="Disabled"
+         Margin="50,0,0,0">
+      <ItemsControl.ItemsPanel>
+          <ItemsPanelTemplate>
+              <StackPanel Orientation="Horizontal"/>
+          </ItemsPanelTemplate>
+      </ItemsControl.ItemsPanel>
+      <ItemsControl.ItemTemplate>
+          <DataTemplate>
+              <Button Content="{Binding}" Margin="0"
+                              FontSize="38" 
+              Foreground="White"
+              Background="Gray"
+              Click="Button_Click" />
+          </DataTemplate>
+      </ItemsControl.ItemTemplate>
+      <ItemsControl.Items>
+        <sys:String>Z</sys:String>
+        <sys:String>X</sys:String>
+        <sys:String>C</sys:String>
+        <sys:String>V</sys:String>
+        <sys:String>B</sys:String>
+        <sys:String>N</sys:String>
+        <sys:String>M</sys:String>
+       </ItemsControl.Items>
+    </ItemsControl>
+  </StackPanel>
+  <StackPanel Grid.Row="2" Orientation="Horizontal"
+    HorizontalAlignment="Center">    
+    <Button Content="X" FontSize="38"
+        Background="YellowGreen" Foreground="Black"/>
+    <Button Content="Submit" FontSize="38"
+        Background="Red" Foreground="White" />
+  </StackPanel>
+  </Grid>
+</UserControl>
