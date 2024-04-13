@@ -12,10 +12,38 @@ namespace wordup.Views;
 
 public partial class Guess : UserControl, INotifyPropertyChanged
 {
-    public List<string> Items {get; private set;} = new List<string>();
+    public class Character
+    {
+        public Character(char c, int m) 
+        {
+            C = c.ToString();
+            match = m;
+        }
+        public IBrush MatchBrush
+        {
+            get
+            {
+                switch (match)
+                {
+                    case 0:
+                        return Brushes.Gray;
+                    case 1:
+                        return Brushes.Orange;
+                    case 2:
+                        return Brushes.Green;
+                }
+
+                return Brushes.Transparent;
+            }
+        }
+        int match;
+        public string C { get; set; }
+    }
+    public List<Character> Items {get; private set;} = new List<Character>();
     public event PropertyChangedEventHandler PropertyChanged;
 
     bool isActive = false;
+    public int NSpaces { get; set; } = 5;
     public bool IsActive {
         get => isActive; 
         set { 
@@ -23,7 +51,7 @@ public partial class Guess : UserControl, INotifyPropertyChanged
             PropertyChanged?.Invoke(this, 
                 new PropertyChangedEventArgs(nameof(IsActive)));
         }
-    }
+    }    
     public Guess()
     {
         this.DataContext = this;
@@ -34,9 +62,26 @@ public partial class Guess : UserControl, INotifyPropertyChanged
     public void SetLetters(string letters)
     {
         Items = 
-            letters.ToCharArray().Select(c => c.ToString()).ToList();
+            letters.ToCharArray().Select(c => new Character(c, -1)).ToList();
+        for (int i = Items.Count; i < NSpaces; i++)
+        {
+            Items.Add(new Character(' ', -1));
+        }
         PropertyChanged?.Invoke(this, 
             new PropertyChangedEventArgs(nameof(Items)));
+    }
+
+    public void SetMatches(string letters, int[]matches)
+    {
+        Items =
+            new List<Character>();
+        for (int i = 0; i < letters.Length; i++)
+        {
+            Items.Add(new Character(letters[i], matches[i]));
+        }
+        PropertyChanged?.Invoke(this,
+            new PropertyChangedEventArgs(nameof(Items)));
+
     }
 }
 

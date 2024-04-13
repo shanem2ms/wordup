@@ -27,7 +27,7 @@
                 Margin="0" 
                 Foreground="White"
               Background="Gray"
-                Click="Button_Click"/>
+                Click="Letter_Click"/>
           </DataTemplate>
       </ItemsControl.ItemTemplate>
       <ItemsControl.Items>
@@ -57,7 +57,7 @@
               FontSize="38" 
                 Foreground="White"
               Background="Gray"
-              Click="Button_Click" />
+              Click="Letter_Click" />
           </DataTemplate>
       </ItemsControl.ItemTemplate>
       <ItemsControl.Items>
@@ -86,7 +86,7 @@
                               FontSize="38" 
               Foreground="White"
               Background="Gray"
-              Click="Button_Click" />
+              Click="Letter_Click" />
           </DataTemplate>
       </ItemsControl.ItemTemplate>
       <ItemsControl.Items>
@@ -103,9 +103,11 @@
   <StackPanel Grid.Row="2" Orientation="Horizontal"
     HorizontalAlignment="Center">    
     <Button Content="X" FontSize="38"
-        Background="YellowGreen" Foreground="Black"/>
+        Background="YellowGreen" Foreground="Black"
+        Click="Backspace_Click" />
     <Button Content="Submit" FontSize="38"
-        Background="Red" Foreground="White" />
+        Background="Red" Foreground="White"
+        Click="Submit_Click" />
   </StackPanel>
   </Grid>
 </UserControl>

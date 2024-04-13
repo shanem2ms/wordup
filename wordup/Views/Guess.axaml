@@ -25,10 +25,11 @@
           <DataTemplate>
             <Border BorderThickness="2"
                 BorderBrush="Blue">
-                <TextBlock Text="{Binding}"
+                <TextBlock Text="{Binding C}"
                     FontSize="50" 
                     Margin="10" 
-                    Foreground="Black"    
+                    Foreground="Black"           
+                    Background="{Binding MatchBrush}"
                     Width="60"            
                     />
                 </Border>
