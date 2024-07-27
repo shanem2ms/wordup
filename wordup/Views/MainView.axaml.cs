@@ -1,3 +1,4 @@
+using System;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 
@@ -14,12 +15,21 @@ public partial class MainView : UserControl
     {
         this.DataContext = this;
         InitializeComponent();
-
+        SetNextWord();
         for (int i = 0; i < guess.Length; ++i)
         {
             guess[i] = new Guess();
             GuessPanel.Children.Add(guess[i]);
         }
+    }
+
+    void SetNextWord()
+    {
+        int numwords = AllWords.FiveLetters.Length;
+        Random r = new Random();
+        int wordidx = r.Next(0, numwords);
+        currentWord = AllWords.FiveLetters[wordidx];
+        currentWord = currentWord.ToUpper();
     }
 
     public void Letter_Click(object? sender, RoutedEventArgs args)
